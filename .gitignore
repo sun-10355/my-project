@@ -6,3 +6,73 @@ release/
 *.log
 .DS_Store
 Thumbs.db
+
+# ===== 2026-10-14 整理仓库时添加：以下内容不上传到公开仓库 =====
+
+# 个人环境（Claude Code 配置、教学工作区、agent）
+.claude/
+.teach/
+.agents/
+.lark-slides/
+skills-lock.json
+Users10355AppDataLocalTempskills-mirror/
+
+# 密钥与登录凭证
+.mcp.json
+auth-qrcode.png
+auth_qr.png
+feishu-auth-qr.png
+qrcode-*.png
+
+# 个人资料与数据
+2025_data.txt
+2026_data.txt
+公司资料.md
+减肥计划
+个人聊天风格卡片.md
+项目清单.markdown
+plans/
+
+# 书籍与媒体
+*.epub
+*.mp3
+*.mp4
+*.dwg
+*.jpg
+掌控习惯*.pdf
+Vincent Ruggiero*.pdf
+城际照片/
+稳动乐/
+
+# 个人学习笔记
+酒桌*
+自我激励*
+无条件快乐*
+情绪管理*
+成瘾性多巴胺*
+松弛感的本质.md
+半秒内功*
+告别社恐*
+视频脚本*
+blog-告别社恐*.html
+video-presentation.html
+暑假每日时间表*
+summer-plan-5yo.md
+养成好好说话的习惯*
+语言规范*
+relaxation-protocol.md
+脚本践行-打印版.html
+Beyond-Feelings-行动原则.md
+
+# 独立子项目（zhixing-heyi 有自己的仓库）
+zhixing-heyi/
+
+# 临时与垃圾文件
+Untitled-1.md
+stderr.txt
+screen-test.html
+test-page.ps1
+clear-try-ipp.ps1
+fix-printer.ps1
+scan-ports.ps1
+diagrams/
