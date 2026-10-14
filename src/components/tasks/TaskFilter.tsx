@@ -22,11 +22,12 @@ export default function TaskFilter() {
           <button
             key={opt.value}
             onClick={() => setFilterStatus(opt.value)}
-            className={`text-xs px-3 py-1.5 rounded-lg transition-all duration-200 ${
+            className="text-xs px-3 py-1.5 rounded-full transition-all duration-200 select-none"
+            style={
               filterStatus === opt.value
-                ? 'bg-white/10 text-white'
-                : 'text-zinc-500 hover:text-zinc-300'
-            }`}
+                ? { background: 'var(--color-terracotta)', color: 'var(--color-crema)' }
+                : { color: 'var(--color-latte)' }
+            }
           >
             {opt.label}
           </button>
@@ -38,9 +39,12 @@ export default function TaskFilter() {
         <div className="flex gap-1">
           <button
             onClick={() => setFilterTag('')}
-            className={`text-xs px-3 py-1.5 rounded-lg transition-all duration-200 ${
-              !filterTag ? 'bg-white/10 text-white' : 'text-zinc-500 hover:text-zinc-300'
-            }`}
+            className="text-xs px-3 py-1.5 rounded-full transition-all duration-200 select-none"
+            style={
+              !filterTag
+                ? { background: 'var(--color-terracotta)', color: 'var(--color-crema)' }
+                : { color: 'var(--color-latte)' }
+            }
           >
             全部标签
           </button>
@@ -48,11 +52,12 @@ export default function TaskFilter() {
             <button
               key={tag}
               onClick={() => setFilterTag(tag === filterTag ? '' : tag)}
-              className={`text-xs px-3 py-1.5 rounded-lg transition-all duration-200 ${
+              className="text-xs px-3 py-1.5 rounded-full transition-all duration-200 select-none"
+              style={
                 filterTag === tag
-                  ? 'bg-primary-600/20 text-primary-400'
-                  : 'text-zinc-500 hover:text-zinc-300'
-              }`}
+                  ? { background: 'var(--color-terracotta)', color: 'var(--color-crema)' }
+                  : { color: 'var(--color-latte)' }
+              }
             >
               {tag}
             </button>

@@ -38,34 +38,37 @@ export default function TaskItem({ task }: Props) {
     setShowForm(true)
   }
 
+  const nextStatus: Record<string, TaskStatus> = { todo: 'in_progress', in_progress: 'done', done: 'todo' }
+
   const handleFocus = () => {
     setActiveTaskId(isActive ? null : task.id!)
   }
 
   const statusIcon =
     task.status === 'done' ? (
-      <CheckCircle2 size={18} className="text-green-500" />
+      <CheckCircle2 size={18} style={{ color: 'var(--color-oliva)' }} />
     ) : task.status === 'in_progress' ? (
-      <Circle size={18} className="text-amber-500" fill="currentColor" />
+      <Circle size={18} style={{ color: 'var(--color-terracotta)' }} fill="currentColor" />
     ) : (
-      <Circle size={18} className="text-zinc-600" />
+      <Circle size={18} style={{ color: 'var(--color-latte)', opacity: 0.5 }} />
     )
 
   return (
     <div
-      className={`group flex items-center gap-3 p-3 rounded-xl transition-all duration-200 ${
+      className="group flex items-center gap-3 p-3 rounded-xl transition-all duration-200"
+      style={
         isActive
-          ? 'bg-tomato-500/10 border border-tomato-500/20'
-          : 'hover:bg-white/5 border border-transparent'
-      }`}
+          ? {
+              background: 'rgba(224, 123, 90, 0.08)',
+              borderLeft: '2px solid var(--color-terracotta)',
+              border: '1px solid transparent',
+            }
+          : { border: '1px solid transparent' }
+      }
     >
       {/* 状态切换 */}
       <button
-        onClick={() =>
-          handleStatusChange(
-            task.status === 'todo' ? 'in_progress' : task.status === 'in_progress' ? 'done' : 'todo'
-          )
-        }
+        onClick={() => handleStatusChange(nextStatus[task.status])}
         className="shrink-0"
         title="切换状态"
       >
@@ -76,23 +79,34 @@ export default function TaskItem({ task }: Props) {
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
           <span
-            className={`text-sm font-medium truncate ${
-              task.status === 'done' ? 'line-through text-zinc-600' : 'text-white'
-            }`}
+            className="text-sm font-medium truncate"
+            style={
+              task.status === 'done'
+                ? { textDecoration: 'line-through', color: 'var(--color-latte)', opacity: 0.5 }
+                : { color: 'var(--color-crema)' }
+            }
           >
             {task.title}
           </span>
           {task.tag && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-white/5 text-zinc-500 shrink-0">
+            <span
+              className="text-[10px] px-1.5 py-0.5 rounded-md shrink-0 select-none"
+              style={{
+                background: 'var(--color-caramel)',
+                color: 'var(--color-latte)',
+              }}
+            >
               {task.tag}
             </span>
           )}
         </div>
         <div className="flex items-center gap-3 mt-0.5">
-          <span className="text-xs text-zinc-600">
-            🍅 {task.completed_pomodoros}/{task.estimated_pomodoros}
+          <span style={{ color: 'var(--color-latte)', fontSize: '12px' }}>
+            完成 {task.completed_pomodoros}/{task.estimated_pomodoros} 番茄
           </span>
-          <span className="text-xs text-zinc-700">{relativeTime(task.created_at)}</span>
+          <span style={{ color: 'var(--color-latte)', opacity: 0.4, fontSize: '12px' }}>
+            {relativeTime(task.created_at)}
+          </span>
         </div>
       </div>
 
@@ -100,25 +114,28 @@ export default function TaskItem({ task }: Props) {
       <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
         <button
           onClick={handleFocus}
-          className={`p-1.5 rounded-lg transition-colors ${
+          className="p-1.5 rounded-lg transition-colors"
+          style={
             isActive
-              ? 'bg-tomato-500/20 text-tomato-400'
-              : 'hover:bg-white/10 text-zinc-500 hover:text-white'
-          }`}
+              ? { background: 'rgba(224, 123, 90, 0.2)', color: 'var(--color-terracotta)' }
+              : {}
+          }
           title={isActive ? '取消关联' : '开始专注'}
         >
           <Play size={14} fill={isActive ? 'currentColor' : 'none'} />
         </button>
         <button
           onClick={handleEdit}
-          className="p-1.5 rounded-lg hover:bg-white/10 text-zinc-500 hover:text-white transition-colors"
+          className="p-1.5 rounded-lg transition-colors"
+          style={{ color: 'var(--color-latte)' }}
           title="编辑"
         >
           <Edit2 size={14} />
         </button>
         <button
           onClick={handleDelete}
-          className="p-1.5 rounded-lg hover:bg-red-500/20 text-zinc-500 hover:text-red-400 transition-colors"
+          className="p-1.5 rounded-lg transition-colors"
+          style={{ color: 'var(--color-latte)' }}
           title="删除"
         >
           <Trash2 size={14} />

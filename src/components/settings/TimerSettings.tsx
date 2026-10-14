@@ -12,11 +12,13 @@ export default function TimerSettings() {
 
   return (
     <div className="space-y-5">
-      <h3 className="text-sm font-semibold text-zinc-300">⏱ 计时设置</h3>
+      <h3 className="text-sm font-semibold" style={{ color: 'var(--color-crema)' }}>
+        计时设置
+      </h3>
       <div className="grid grid-cols-2 gap-4">
         {durations.map((d) => (
           <div key={d.key}>
-            <label className="block text-sm text-zinc-400 mb-2">
+            <label className="block text-sm mb-2" style={{ color: 'var(--color-latte)' }}>
               {d.label} ({d.unit})
             </label>
             <input
@@ -41,18 +43,22 @@ export default function TimerSettings() {
             type="checkbox"
             checked={settings.auto_start_breaks}
             onChange={(e) => setSettings({ auto_start_breaks: e.target.checked })}
-            className="w-4 h-4 rounded accent-primary-600"
+            className="w-4 h-4 rounded"
           />
-          <span className="text-sm text-zinc-400">工作结束后自动开始休息</span>
+          <span className="text-sm" style={{ color: 'var(--color-latte)' }}>
+            工作结束后自动开始休息
+          </span>
         </label>
         <label className="flex items-center gap-3 cursor-pointer">
           <input
             type="checkbox"
             checked={settings.auto_start_work}
             onChange={(e) => setSettings({ auto_start_work: e.target.checked })}
-            className="w-4 h-4 rounded accent-primary-600"
+            className="w-4 h-4 rounded"
           />
-          <span className="text-sm text-zinc-400">休息结束后自动开始工作</span>
+          <span className="text-sm" style={{ color: 'var(--color-latte)' }}>
+            休息结束后自动开始工作
+          </span>
         </label>
       </div>
     </div>

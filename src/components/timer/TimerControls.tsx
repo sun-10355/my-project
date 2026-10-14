@@ -18,14 +18,21 @@ export default function TimerControls({ state, onStart, onPause, onReset, onSkip
     <div className="flex items-center gap-4">
       {/* 开始/暂停 */}
       {(isIdle || isPaused || isFinished) && (
-        <button onClick={onStart} className="btn-primary flex items-center gap-2 px-6 py-3 text-base">
+        <button onClick={onStart} className="btn-primary flex items-center gap-2 px-8 py-3.5 text-base">
           <Play size={18} fill="currentColor" />
           {isFinished ? '继续' : '开始'}
         </button>
       )}
 
       {isRunning && (
-        <button onClick={onPause} className="btn-primary flex items-center gap-2 px-6 py-3 text-base bg-amber-500 hover:bg-amber-400">
+        <button
+          onClick={onPause}
+          className="flex items-center gap-2 px-8 py-3.5 text-base font-medium rounded-full transition-all duration-200 active:scale-95"
+          style={{
+            background: 'var(--color-oliva)',
+            color: 'var(--color-crema)',
+          }}
+        >
           <Pause size={18} fill="currentColor" />
           暂停
         </button>

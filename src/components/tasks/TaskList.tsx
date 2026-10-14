@@ -21,7 +21,7 @@ export default function TaskList() {
   return (
     <div className="flex-1 overflow-y-auto">
       {sorted.length === 0 ? (
-        <div className="flex flex-col items-center justify-center h-full text-zinc-600">
+        <div className="flex flex-col items-center justify-center h-full" style={{ color: 'var(--color-latte)', opacity: 0.6 }}>
           <span className="text-4xl mb-3">📝</span>
           <p className="text-sm">还没有任务</p>
           <button onClick={() => setShowForm(true)} className="btn-ghost mt-4 text-sm">

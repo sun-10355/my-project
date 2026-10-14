@@ -47,11 +47,14 @@ export default function TimerPage() {
         {Array.from({ length: 4 }, (_, i) => (
           <div
             key={i}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              i < pomodoroCount % 4
-                ? 'bg-tomato-400 scale-100'
-                : 'bg-white/10 scale-75'
-            }`}
+            className="w-2 h-2 rounded-full transition-all duration-300"
+            style={{
+              background:
+                i < pomodoroCount % 4
+                  ? 'var(--color-terracotta)'
+                  : 'var(--color-caramel)',
+              transform: i < pomodoroCount % 4 ? 'scale(1)' : 'scale(0.75)',
+            }}
           />
         ))}
       </div>

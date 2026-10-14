@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Download, FileJson, FileSpreadsheet } from 'lucide-react'
+import { Download, FileSpreadsheet, FileJson } from 'lucide-react'
 import { handleExport } from '@/utils/export'
 
 export default function StatsExport() {
@@ -34,8 +34,12 @@ export default function StatsExport() {
         <FileJson size={16} />
         导出 JSON
       </button>
-      {exporting && <Download size={16} className="text-zinc-500 animate-bounce" />}
-      {done && <span className="text-xs text-green-400">导出完成 ✓</span>}
+      {exporting && <Download size={16} style={{ color: 'var(--color-latte)' }} className="animate-bounce" />}
+      {done && (
+        <span className="text-xs" style={{ color: 'var(--color-oliva)' }}>
+          导出完成
+        </span>
+      )}
     </div>
   )
 }

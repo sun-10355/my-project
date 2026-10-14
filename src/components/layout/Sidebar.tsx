@@ -13,7 +13,13 @@ export default function Sidebar() {
   const navigate = useNavigate()
 
   return (
-    <aside className="w-52 h-full bg-zinc-900/50 border-r border-white/5 flex flex-col pt-9">
+    <aside
+      className="w-48 h-full flex flex-col pt-9"
+      style={{
+        background: 'var(--color-caramel)',
+        boxShadow: 'inset -4px 0 8px rgba(26, 22, 20, 0.3)',
+      }}
+    >
       <nav className="flex-1 p-3 space-y-1">
         {navItems.map((item) => {
           const Icon = item.icon
@@ -23,6 +29,7 @@ export default function Sidebar() {
               key={item.path}
               onClick={() => navigate(item.path)}
               className={`nav-item ${isActive ? 'active' : ''}`}
+              style={isActive ? { borderRadius: '0 12px 12px 0', marginLeft: '-12px', paddingLeft: '28px' } : {}}
             >
               <Icon size={20} />
               <span className="text-sm">{item.label}</span>
@@ -32,8 +39,8 @@ export default function Sidebar() {
       </nav>
 
       {/* 底部版本信息 */}
-      <div className="p-3 border-t border-white/5">
-        <span className="text-xs text-zinc-600">v1.0.0</span>
+      <div className="p-3" style={{ borderTop: '1px solid rgba(168, 152, 132, 0.12)' }}>
+        <span style={{ color: 'var(--color-latte)', fontSize: '12px' }}>v1.0.0</span>
       </div>
     </aside>
   )

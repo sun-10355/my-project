@@ -19,11 +19,19 @@ export default function TimerPresets({ currentMinutes, onSelect }: Props) {
           <button
             key={preset.minutes}
             onClick={() => onSelect(preset.minutes)}
-            className={`text-xs px-3 py-1.5 rounded-lg transition-all duration-200 ${
+            className="text-xs px-3 py-1.5 rounded-full transition-all duration-200 select-none"
+            style={
               isActive
-                ? 'bg-primary-600/20 text-primary-400 border border-primary-500/30'
-                : 'bg-white/5 text-zinc-500 hover:text-zinc-300 border border-transparent'
-            }`}
+                ? {
+                    background: 'var(--color-terracotta)',
+                    color: 'var(--color-crema)',
+                  }
+                : {
+                    background: 'transparent',
+                    color: 'var(--color-latte)',
+                    border: '1px solid rgba(168, 152, 132, 0.2)',
+                  }
+            }
           >
             {preset.label}
           </button>

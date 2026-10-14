@@ -31,8 +31,8 @@ export default function SettingsPage() {
   return (
     <div className="flex flex-col h-full">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-white">⚙ 设置</h2>
-        <p className="text-sm text-zinc-500 mt-1">自定义你的番茄钟体验</p>
+        <h2 className="text-xl font-semibold" style={{ color: 'var(--color-crema)' }}>设置</h2>
+        <p className="text-sm mt-1" style={{ color: 'var(--color-latte)' }}>自定义你的番茄钟体验</p>
       </div>
 
       <div className="space-y-8 overflow-y-auto flex-1">

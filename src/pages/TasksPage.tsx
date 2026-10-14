@@ -29,8 +29,8 @@ export default function TasksPage() {
       {/* 顶部栏 */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-white">📋 任务列表</h2>
-          <p className="text-sm text-zinc-500 mt-1">管理你的待办任务，关联番茄钟专注</p>
+          <h2 className="text-xl font-semibold" style={{ color: 'var(--color-crema)' }}>任务列表</h2>
+          <p className="text-sm mt-1" style={{ color: 'var(--color-latte)' }}>管理你的待办任务，关联番茄钟专注</p>
         </div>
         <button onClick={() => setShowForm(true)} className="btn-primary flex items-center gap-2">
           <Plus size={18} />

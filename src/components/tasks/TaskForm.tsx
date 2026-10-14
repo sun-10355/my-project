@@ -64,13 +64,20 @@ export default function TaskForm() {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-40">
+    <div
+      className="fixed inset-0 flex items-center justify-center z-40"
+      style={{ background: 'rgba(26, 22, 20, 0.7)', backdropFilter: 'blur(4px)' }}
+    >
       <div className="card w-full max-w-md p-6">
         <div className="flex items-center justify-between mb-5">
-          <h3 className="text-lg font-semibold text-white">
+          <h3 style={{ color: 'var(--color-crema)', fontSize: '18px', fontWeight: 600 }}>
             {editingTask ? '编辑任务' : '新建任务'}
           </h3>
-          <button onClick={handleClose} className="text-zinc-500 hover:text-white transition-colors">
+          <button
+            onClick={handleClose}
+            style={{ color: 'var(--color-latte)' }}
+            className="hover:opacity-80 transition-opacity"
+          >
             <X size={20} />
           </button>
         </div>
@@ -78,7 +85,12 @@ export default function TaskForm() {
         <div className="space-y-4">
           {/* 标题 */}
           <div>
-            <label className="block text-sm text-zinc-400 mb-1.5">任务名称</label>
+            <label
+              className="block text-sm mb-1.5"
+              style={{ color: 'var(--color-latte)' }}
+            >
+              任务名称
+            </label>
             <input
               type="text"
               value={title}
@@ -92,7 +104,12 @@ export default function TaskForm() {
 
           {/* 描述 */}
           <div>
-            <label className="block text-sm text-zinc-400 mb-1.5">描述 (可选)</label>
+            <label
+              className="block text-sm mb-1.5"
+              style={{ color: 'var(--color-latte)' }}
+            >
+              描述 (可选)
+            </label>
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -105,7 +122,12 @@ export default function TaskForm() {
           {/* 标签 & 预估番茄数 */}
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-sm text-zinc-400 mb-1.5">标签</label>
+              <label
+                className="block text-sm mb-1.5"
+                style={{ color: 'var(--color-latte)' }}
+              >
+                标签
+              </label>
               <input
                 type="text"
                 value={tag}
@@ -115,7 +137,12 @@ export default function TaskForm() {
               />
             </div>
             <div>
-              <label className="block text-sm text-zinc-400 mb-1.5">预估番茄数</label>
+              <label
+                className="block text-sm mb-1.5"
+                style={{ color: 'var(--color-latte)' }}
+              >
+                预估番茄数
+              </label>
               <input
                 type="number"
                 value={estimatedPomodoros}
@@ -132,7 +159,11 @@ export default function TaskForm() {
             <button onClick={handleClose} className="btn-ghost flex-1">
               取消
             </button>
-            <button onClick={handleSubmit} disabled={!title.trim()} className="btn-primary flex-1">
+            <button
+              onClick={handleSubmit}
+              disabled={!title.trim()}
+              className="btn-primary flex-1"
+            >
               {editingTask ? '保存' : '创建'}
             </button>
           </div>

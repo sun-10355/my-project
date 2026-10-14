@@ -27,8 +27,8 @@ export default function StatsPage() {
       {/* 顶部栏 */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-white">📈 统计报告</h2>
-          <p className="text-sm text-zinc-500 mt-1">追踪你的专注时间，回顾工作模式</p>
+          <h2 className="text-xl font-semibold" style={{ color: 'var(--color-crema)' }}>统计报告</h2>
+          <p className="text-sm mt-1" style={{ color: 'var(--color-latte)' }}>追踪你的专注时间，回顾工作模式</p>
         </div>
         <StatsExport />
       </div>
